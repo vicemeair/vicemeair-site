@@ -2,20 +2,32 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Vicemeair</title>
 
 <style>
 
 body{
+margin:0;
+font-family:Arial;
 background:black;
 color:white;
-font-family:Arial;
-text-align:center;
-padding:40px;
 }
 
-h1{
-font-size:70px;
+header{
+background:#111;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:35px;
+font-weight:bold;
 }
 
 .vic{
@@ -30,18 +42,68 @@ color:white;
 color:#AFFF00;
 }
 
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-size:18px;
+}
+
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:70px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:gray;
+font-size:20px;
+}
+
+.products{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+padding:40px;
+}
+
 .card{
 background:#111;
 padding:20px;
 border-radius:20px;
-width:300px;
-margin:auto;
-margin-top:40px;
+width:250px;
+text-align:center;
+transition:0.3s;
 }
 
-img{
+.card:hover{
+transform:scale(1.05);
+}
+
+.card img{
 width:100%;
-border-radius:20px;
+border-radius:15px;
+}
+
+button{
+background:#AFFF00;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:gray;
 }
 
 </style>
@@ -49,20 +111,67 @@ border-radius:20px;
 
 <body>
 
+<header>
+
+<div class="logo">
+<span class="vic">VIC</span><span class="eme">EME</span><span class="air">AIR</span>
+</div>
+
+<nav>
+<a href="">Grip</a>
+<a href="">Autocollants</a>
+<a href="">Tee-Shirts</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
 <h1>
 <span class="vic">VIC</span><span class="eme">EME</span><span class="air">AIR</span>
 </h1>
 
 <p>Freestyle Scooter Brand</p>
 
-<div class="card">
-<h2>Tee Shirt Vicemeair</h2>
+</section>
 
-<img src="https://picsum.photos/300">
+<section class="products">
+
+<div class="card">
+<img src="https://picsum.photos/300?1">
+
+<h2>Grip Vicemeair</h2>
+
+<p>19€</p>
+
+<button>Acheter</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300?2">
+
+<h2>Autocollants</h2>
+
+<p>5€</p>
+
+<button>Acheter</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300?3">
+
+<h2>Tee-Shirt</h2>
 
 <p>29€</p>
 
+<button>Acheter</button>
 </div>
+
+</section>
+
+<footer>
+© Vicemeair 2026
+</footer>
 
 </body>
 </html>
