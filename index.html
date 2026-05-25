@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +9,34 @@
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
 background:black;
 color:white;
+overflow-x:hidden;
 }
 
 header{
-background:#111;
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.9);
 padding:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-position:sticky;
-top:0;
+z-index:1000;
+border-bottom:1px solid #222;
 }
 
 .logo{
-font-size:35px;
+font-size:32px;
 font-weight:bold;
 }
 
@@ -46,22 +56,59 @@ nav a{
 color:white;
 text-decoration:none;
 margin-left:20px;
-font-size:18px;
+font-size:17px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#AFFF00;
 }
 
 .hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:80px 20px;
+padding:20px;
+background:
+linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+url('https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1400&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
 }
 
 .hero h1{
-font-size:70px;
-margin-bottom:10px;
+font-size:90px;
+margin-bottom:20px;
 }
 
 .hero p{
-color:gray;
-font-size:20px;
+font-size:22px;
+color:#ccc;
+margin-bottom:30px;
+}
+
+.btn{
+background:#AFFF00;
+color:black;
+padding:15px 30px;
+border-radius:12px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.section-title{
+text-align:center;
+font-size:50px;
+margin-top:80px;
+margin-bottom:40px;
 }
 
 .products{
@@ -69,41 +116,79 @@ display:flex;
 justify-content:center;
 gap:30px;
 flex-wrap:wrap;
-padding:40px;
+padding:20px;
 }
 
 .card{
 background:#111;
-padding:20px;
+width:300px;
 border-radius:20px;
-width:250px;
-text-align:center;
+overflow:hidden;
 transition:0.3s;
+border:1px solid #222;
 }
 
 .card:hover{
-transform:scale(1.05);
+transform:translateY(-10px);
 }
 
 .card img{
 width:100%;
-border-radius:15px;
+height:300px;
+object-fit:cover;
 }
 
-button{
-background:#AFFF00;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
-margin-top:10px;
+.card-content{
+padding:20px;
+text-align:center;
+}
+
+.card h2{
+margin-bottom:10px;
+}
+
+.price{
+color:#AFFF00;
+font-size:22px;
+margin-bottom:15px;
+}
+
+.team{
+padding:80px 20px;
+text-align:center;
+}
+
+.team-box{
+background:#111;
+padding:30px;
+border-radius:20px;
+max-width:700px;
+margin:auto;
+border:1px solid #222;
 }
 
 footer{
+padding:40px;
 text-align:center;
-padding:30px;
 color:gray;
+margin-top:50px;
+border-top:1px solid #222;
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:55px;
+}
+
+nav{
+display:none;
+}
+
+.section-title{
+font-size:35px;
+}
+
 }
 
 </style>
@@ -118,9 +203,9 @@ color:gray;
 </div>
 
 <nav>
-<a href="">Grip</a>
-<a href="">Autocollants</a>
-<a href="">Tee-Shirts</a>
+<a href="#shop">Shop</a>
+<a href="#team">Team</a>
+<a href="https://instagram.com" target="_blank">Instagram</a>
 </nav>
 
 </header>
@@ -133,44 +218,93 @@ color:gray;
 
 <p>Freestyle Scooter Brand</p>
 
+<a class="btn" href="https://instagram.com" target="_blank">
+Commander sur Instagram
+</a>
+
 </section>
+
+<h2 class="section-title" id="shop">SHOP</h2>
 
 <section class="products">
 
 <div class="card">
-<img src="https://picsum.photos/300?1">
 
-<h2>Grip Vicemeair</h2>
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop">
 
-<p>19€</p>
+<div class="card-content">
 
-<button>Acheter</button>
+<h2>Tee-Shirt Vicemeair</h2>
+
+<p class="price">29€</p>
+
+<a class="btn" href="https://instagram.com" target="_blank">
+Commander
+</a>
+
+</div>
 </div>
 
 <div class="card">
-<img src="https://picsum.photos/300?2">
 
-<h2>Autocollants</h2>
+<img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=1200&auto=format&fit=crop">
 
-<p>5€</p>
+<div class="card-content">
 
-<button>Acheter</button>
+<h2>Grip Freestyle</h2>
+
+<p class="price">19€</p>
+
+<a class="btn" href="https://instagram.com" target="_blank">
+Commander
+</a>
+
+</div>
 </div>
 
 <div class="card">
-<img src="https://picsum.photos/300?3">
 
-<h2>Tee-Shirt</h2>
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop">
 
-<p>29€</p>
+<div class="card-content">
 
-<button>Acheter</button>
+<h2>Stickers Pack</h2>
+
+<p class="price">5€</p>
+
+<a class="btn" href="https://instagram.com" target="_blank">
+Commander
+</a>
+
+</div>
+</div>
+
+</section>
+
+<section class="team" id="team">
+
+<h2 class="section-title">TEAM</h2>
+
+<div class="team-box">
+
+<p>
+Vicemeair est une marque freestyle créée entre potes autour de la trott, du street et des gros tricks.
+</p>
+
+<br>
+
+<p>
+Ride. Film. Create.
+</p>
+
 </div>
 
 </section>
 
 <footer>
-© Vicemeair 2026
+
+© 2026 Vicemeair
+
 </footer>
 
 </body>
