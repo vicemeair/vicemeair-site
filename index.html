@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vicemeair</title>
+<title>Vicemeair shops</title>
 
 <style>
 
@@ -23,6 +23,30 @@ color:white;
 overflow-x:hidden;
 }
 
+/* LOADER */
+
+#loader{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:50px;
+font-weight:bold;
+z-index:9999;
+animation:fadeOut 2s forwards;
+animation-delay:2s;
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
 /* HEADER */
 
 header{
@@ -34,21 +58,24 @@ padding:20px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.9);
+background:rgba(0,0,0,0.8);
 backdrop-filter:blur(10px);
 z-index:1000;
 border-bottom:1px solid #222;
 }
 
 .logo img{
-height:75px;
-animation:glow 2s infinite alternate;
+height:70px;
+}
+
+nav{
+display:flex;
+gap:25px;
 }
 
 nav a{
 color:white;
 text-decoration:none;
-margin-left:25px;
 font-size:18px;
 transition:0.3s;
 }
@@ -57,36 +84,50 @@ nav a:hover{
 color:#AFFF00;
 }
 
-/* HERO */
+/* HERO VIDEO */
 
 .hero{
+position:relative;
 height:100vh;
+overflow:hidden;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
+}
 
-background:
-linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-url('https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1400&auto=format&fit=crop');
+.hero video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0.35;
+}
 
-background-size:cover;
-background-position:center;
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+animation:fadeUp 1.5s ease;
 }
 
 .hero h1{
 font-size:90px;
 margin-bottom:20px;
-animation:fadeUp 1s ease;
 }
 
 .hero p{
-font-size:22px;
+font-size:24px;
 color:#ccc;
 margin-bottom:30px;
-animation:fadeUp 1.5s ease;
 }
 
 .btn{
@@ -96,8 +137,8 @@ padding:15px 30px;
 border-radius:12px;
 text-decoration:none;
 font-weight:bold;
-transition:0.3s;
 display:inline-block;
+transition:0.3s;
 }
 
 .btn:hover{
@@ -148,14 +189,28 @@ padding:20px;
 text-align:center;
 }
 
-.card h2{
-margin-bottom:10px;
-}
-
 .price{
 font-size:24px;
 color:#AFFF00;
+margin-bottom:10px;
+}
+
+.stock{
+color:#ff4d4d;
 margin-bottom:15px;
+font-size:14px;
+}
+
+/* DROP */
+
+.drop-box{
+max-width:800px;
+margin:auto;
+background:#111;
+padding:40px;
+border-radius:20px;
+border:1px solid #222;
+text-align:center;
 }
 
 /* TEAM */
@@ -177,7 +232,7 @@ text-align:center;
 .riders{
 display:flex;
 justify-content:center;
-gap:40px;
+gap:30px;
 flex-wrap:wrap;
 margin-top:40px;
 }
@@ -187,13 +242,12 @@ background:#181818;
 padding:25px;
 border-radius:20px;
 width:220px;
-transition:0.3s;
 border:1px solid #222;
+transition:0.3s;
 }
 
 .rider:hover{
 transform:translateY(-8px);
-box-shadow:0 0 15px rgba(138,43,226,0.4);
 }
 
 .rider h3{
@@ -211,44 +265,22 @@ color:gray;
 border-top:1px solid #222;
 }
 
-/* ANIMATIONS */
-
-@keyframes glow{
-
-from{
-filter:drop-shadow(0 0 5px #AFFF00);
-}
-
-to{
-filter:drop-shadow(0 0 20px #8A2BE2);
-}
-
-}
-
-@keyframes fadeUp{
-
-from{
-opacity:0;
-transform:translateY(40px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
 /* MOBILE */
+
+.menu-btn{
+display:none;
+font-size:30px;
+color:white;
+}
 
 @media(max-width:700px){
 
-header{
-padding:20px;
-}
-
 nav{
 display:none;
+}
+
+.menu-btn{
+display:block;
 }
 
 .hero h1{
@@ -269,26 +301,50 @@ height:55px;
 
 }
 
+/* ANIMS */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
 </style>
 </head>
 
 <body>
+
+<!-- LOADER -->
+
+<div id="loader">
+VICEMEAIR
+</div>
 
 <!-- HEADER -->
 
 <header>
 
 <div class="logo">
-<img src="logo.png" alt="Vicemeair Logo">
+<img src="logo.png">
 </div>
 
 <nav>
 <a href="#shop">Shop</a>
+<a href="#drop">Drop</a>
 <a href="#team">Team</a>
-<a href="https://instagram.com/vicemeair" target="_blank">
-Instagram
-</a>
 </nav>
+
+<div class="menu-btn">
+☰
+</div>
 
 </header>
 
@@ -296,17 +352,25 @@ Instagram
 
 <section class="hero">
 
-<h1>
-VICEMEAIR
-</h1>
+<video autoplay muted loop playsinline>
+<source src="https://cdn.coverr.co/videos/coverr-skatepark-1564846949183?download=1080p" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="hero-content">
+
+<h1>VICEMEAIR</h1>
 
 <p>
-Freestyle Scooter Brand • Édition Gerland
+Gerland Edition • Freestyle Scooter Brand
 </p>
 
 <a class="btn" href="https://instagram.com/vicemeair" target="_blank">
 Commander sur Instagram
 </a>
+
+</div>
 
 </section>
 
@@ -324,11 +388,15 @@ SHOP
 
 <div class="card-content">
 
-<h2>Tee-Shirt Vicemeair</h2>
+<h2>Tee-Shirt</h2>
 
 <p class="price">20€</p>
 
-<a class="btn" href="https://instagram.com/vicemeair" target="_blank">
+<p class="stock">
+Plus que 5 disponibles
+</p>
+
+<a class="btn" href="#">
 Commander
 </a>
 
@@ -345,7 +413,11 @@ Commander
 
 <p class="price">35€</p>
 
-<a class="btn" href="https://instagram.com/vicemeair" target="_blank">
+<p class="stock">
+Édition limitée Gerland
+</p>
+
+<a class="btn" href="#">
 Commander
 </a>
 
@@ -362,7 +434,11 @@ Commander
 
 <p class="price">2€</p>
 
-<a class="btn" href="https://instagram.com/vicemeair" target="_blank">
+<p class="stock">
+Pack exclusif
+</p>
+
+<a class="btn" href="#">
 Commander
 </a>
 
@@ -371,20 +447,35 @@ Commander
 
 </section>
 
+<!-- DROP -->
+
+<h2 class="section-title" id="drop">
+DROP GERLAND
+</h2>
+
+<div class="drop-box">
+
+<p>
+Collection limitée inspirée des sessions indoor de Gerland.
+</p>
+
+<br>
+
+<p>
+Street • Park • Flat
+</p>
+
+</div>
+
 <!-- TEAM -->
 
 <section class="team" id="team">
 
 <h2 class="section-title">
-TEAM GERLAND
+TEAM
 </h2>
 
 <div class="team-box">
-
-<p>
-Vicemeair est une marque créée entre potes autour de la trott freestyle,
-du street, du park et des grosses sessions à Gerland.
-</p>
 
 <div class="riders">
 
@@ -405,17 +496,9 @@ du street, du park et des grosses sessions à Gerland.
 
 </div>
 
-<br><br>
-
-<p>
-Ride • Film • Create
-</p>
-
 </div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
