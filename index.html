@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vicemeairshops</title>
+<title>Vicemeair</title>
 
 <style>
 
@@ -17,7 +17,7 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:black;
 color:white;
 overflow-x:hidden;
@@ -40,22 +40,9 @@ z-index:1000;
 border-bottom:1px solid #222;
 }
 
-.logo{
-font-size:35px;
-font-weight:bold;
+.logo img{
+height:75px;
 animation:glow 2s infinite alternate;
-}
-
-.vic{
-color:#8A2BE2;
-}
-
-.eme{
-color:white;
-}
-
-.air{
-color:#AFFF00;
 }
 
 nav a{
@@ -82,7 +69,7 @@ text-align:center;
 padding:20px;
 
 background:
-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
 url('https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1400&auto=format&fit=crop');
 
 background-size:cover;
@@ -99,7 +86,7 @@ animation:fadeUp 1s ease;
 font-size:22px;
 color:#ccc;
 margin-bottom:30px;
-animation:fadeUp 1.4s ease;
+animation:fadeUp 1.5s ease;
 }
 
 .btn{
@@ -178,7 +165,7 @@ padding:80px 20px;
 }
 
 .team-box{
-max-width:800px;
+max-width:900px;
 margin:auto;
 background:#111;
 padding:40px;
@@ -187,9 +174,31 @@ border:1px solid #222;
 text-align:center;
 }
 
-.team-box h3{
-margin-top:20px;
+.riders{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.rider{
+background:#181818;
+padding:25px;
+border-radius:20px;
+width:220px;
+transition:0.3s;
+border:1px solid #222;
+}
+
+.rider:hover{
+transform:translateY(-8px);
+box-shadow:0 0 15px rgba(138,43,226,0.4);
+}
+
+.rider h3{
 color:#AFFF00;
+margin-bottom:10px;
 }
 
 /* FOOTER */
@@ -207,11 +216,11 @@ border-top:1px solid #222;
 @keyframes glow{
 
 from{
-text-shadow:0 0 5px #AFFF00;
+filter:drop-shadow(0 0 5px #AFFF00);
 }
 
 to{
-text-shadow:0 0 20px #8A2BE2;
+filter:drop-shadow(0 0 20px #8A2BE2);
 }
 
 }
@@ -254,8 +263,8 @@ font-size:18px;
 font-size:35px;
 }
 
-.logo{
-font-size:28px;
+.logo img{
+height:55px;
 }
 
 }
@@ -270,7 +279,7 @@ font-size:28px;
 <header>
 
 <div class="logo">
-<span class="vic">VIC</span><span class="eme">EME</span><span class="air">AIR</span>
+<img src="logo.png" alt="Vicemeair Logo">
 </div>
 
 <nav>
@@ -288,11 +297,11 @@ Instagram
 <section class="hero">
 
 <h1>
-<span class="vic">VIC</span><span class="eme">EME</span><span class="air">AIR</span>
+VICEMEAIR
 </h1>
 
 <p>
-Freestyle Scooter Brand
+Freestyle Scooter Brand • Édition Gerland
 </p>
 
 <a class="btn" href="https://instagram.com/vicemeair" target="_blank">
@@ -367,35 +376,39 @@ Commander
 <section class="team" id="team">
 
 <h2 class="section-title">
-TEAM
+TEAM GERLAND
 </h2>
 
 <div class="team-box">
 
 <p>
 Vicemeair est une marque créée entre potes autour de la trott freestyle,
-du street et des gros tricks.
+du street, du park et des grosses sessions à Gerland.
 </p>
 
-<br>
+<div class="riders">
 
-<h3>Emery</h3>
-<p>park Rider / triple whip</p>
+<div class="rider">
+<h3>Emey</h3>
+<p>Rider Park</p>
+</div>
 
-<br>
+<div class="rider">
+<h3>Victor</h3>
+<p>Rider Street</p>
+</div>
 
-<h3>victor</h3>
-<p>street Rider / double bar spin</p>
-
-<br>
-
+<div class="rider">
 <h3>Raphaël</h3>
-<p>flat rider / double whip</p>
+<p>Rider Flat</p>
+</div>
+
+</div>
 
 <br><br>
 
 <p>
-Ride. Film. Create.
+Ride • Film • Create
 </p>
 
 </div>
@@ -406,7 +419,7 @@ Ride. Film. Create.
 
 <footer>
 
-© 2026 VICEMEAIR
+© 2026 VICEMEAIR GERLAND EDITION
 
 </footer>
 
